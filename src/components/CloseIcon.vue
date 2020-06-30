@@ -23,9 +23,7 @@ export default {
 	},
 	methods: {
 		close() {
-			this.$store.commit("person", true);
-			this.$store.commit("contact", false);
-			this.$store.commit("text", { type: "all", bool: true });
+			this.$store.commit("close");
 		}
 	}
 };

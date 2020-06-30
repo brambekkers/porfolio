@@ -50,6 +50,11 @@ export default new Vuex.Store({
         },
         contact(state, val) {
             state.contact = val;
+        },
+        close(state) {
+            state.person = true
+            state.contact = false
+            state.text.all = true
         }
     }
 });

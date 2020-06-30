@@ -1,34 +1,36 @@
 <template>
-	<div
-		id="contact"
-		v-if="contact"
-	>
-		<div id="form">
-			<p class="title"> Contact</p>
-			<input
-				type="text"
-				v-model="name"
-				placeholder="Naam..."
-			>
-			<input
-				type="email"
-				v-model="email"
-				placeholder="Email..."
-			>
-			<input
-				type="text"
-				v-model="subject"
-				placeholder="Onderwerp..."
-			>
-			<textarea
-				type="textfield"
-				v-model="message"
-				rows="20"
-				placeholder="Bericht..."
-			></textarea>
-			<button @click="sendMsg">Stuur bericht</button>
+	<transition name="fade">
+		<div
+			id="contact"
+			v-if="contact"
+		>
+			<div id="form">
+				<p class="title"> Contact</p>
+				<input
+					type="text"
+					v-model="name"
+					placeholder="Naam..."
+				>
+				<input
+					type="email"
+					v-model="email"
+					placeholder="Email..."
+				>
+				<input
+					type="text"
+					v-model="subject"
+					placeholder="Onderwerp..."
+				>
+				<textarea
+					type="textfield"
+					v-model="message"
+					rows="20"
+					placeholder="Bericht..."
+				></textarea>
+				<button @click="sendMsg">Verstuur</button>
+			</div>
 		</div>
-	</div>
+	</transition>
 </template>
 
 <script>
@@ -49,6 +51,7 @@ export default {
 	methods: {
 		sendMsg() {
 			console.log("message send");
+			this.$store.commit("close");
 		}
 	}
 };
@@ -127,8 +130,19 @@ export default {
 				white-space: nowrap;
 				padding: 8px 12px;
 				width: 50%;
+				font-size: 1.2rem;
 				border: none;
 				border-radius: 3px;
+				transition: background-color 0.2s;
+				background-color: rgba($color: white, $alpha: 0.4);
+				border-color: #ccc;
+				border-width: 0 0 2px 0;
+				border-style: none none solid none;
+
+				&:hover {
+					background-color: rgba($color: white, $alpha: 1);
+					cursor: pointer;
+				}
 			}
 		}
 	}
