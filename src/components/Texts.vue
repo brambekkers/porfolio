@@ -1,14 +1,37 @@
 <template>
 	<div id="texts">
-		<transition name="bounceLeft" mode="out-in">
-			<div class="text textIntro" key="textIntro" v-if="!scroll">
+		<transition
+			name="bounceLeft"
+			mode="out-in"
+		>
+			<div
+				class="text textIntro"
+				key="textIntro"
+				v-if="text.intro &&text.all"
+			>
 				<transition-group name="bounceLeft">
-					<p class="hallo" key="hallo" v-if="intro.hallo">Hallo,</p>
-					<p class="ikBen" key="ikBen" v-if="intro.ikBen">ik ben</p>
-					<p class="bram" key="bram" v-if="intro.bram">Bram</p>
+					<p
+						class="hallo"
+						key="hallo"
+						v-if="intro.hallo"
+					>Hallo,</p>
+					<p
+						class="ikBen"
+						key="ikBen"
+						v-if="intro.ikBen"
+					>ik ben</p>
+					<p
+						class="bram"
+						key="bram"
+						v-if="intro.bram"
+					>Bram</p>
 				</transition-group>
 			</div>
-			<div class="text textProfession" v-if="scroll" key="textOutro">
+			<div
+				class="text textProfession"
+				v-if="text.profession  &&text.all"
+				key="textOutro"
+			>
 				<transition-group name="bounceLeft">
 					<p
 						class="teaching"
@@ -38,62 +61,64 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				timeout: null,
-				intro: {
-					hallo: false,
-					ikBen: false,
-					bram: false
-				},
-				profession: {
-					teaching: false,
-					coding: false,
-					making: false
-				}
-			};
-		},
-		watch: {
-			scroll() {
-				for (let i = 0; i < Object.keys(this.profession).length; i++) {
-					const key = Object.keys(this.profession)[i];
-					setTimeout(() => {
-						this.profession[key] = true;
-					}, 1000 * (i + 1));
-				}
-			}
-		},
-		computed: {
-			scroll() {
-				return this.$store.getters.scroll;
-			}
-		},
-		methods: {
-			enter(prof) {
-				clearTimeout(this.timeout);
-				this.$store.commit("profession", prof);
+export default {
+	data() {
+		return {
+			timeout: null,
+			intro: {
+				hallo: false,
+				ikBen: false,
+				bram: false
 			},
-			leave() {
-				this.timeout = setTimeout(() => {
-					this.$store.commit("profession", "");
-				}, 2000);
+			profession: {
+				teaching: false,
+				coding: false,
+				making: false
 			}
-		},
-		mounted() {
-			for (let i = 0; i < Object.keys(this.intro).length; i++) {
-				const key = Object.keys(this.intro)[i];
+		};
+	},
+	watch: {
+		scroll() {
+			for (let i = 0; i < Object.keys(this.profession).length; i++) {
+				const key = Object.keys(this.profession)[i];
 				setTimeout(() => {
-					this.intro[key] = true;
+					this.profession[key] = true;
 				}, 1000 * (i + 1));
 			}
 		}
-	};
+	},
+	computed: {
+		text() {
+			return this.$store.getters.text;
+		},
+		scroll() {
+			return this.$store.getters.scroll;
+		}
+	},
+	methods: {
+		enter(prof) {
+			clearTimeout(this.timeout);
+			this.$store.commit("profession", prof);
+		},
+		leave() {
+			this.timeout = setTimeout(() => {
+				this.$store.commit("profession", "");
+			}, 2000);
+		}
+	},
+	mounted() {
+		for (let i = 0; i < Object.keys(this.intro).length; i++) {
+			const key = Object.keys(this.intro)[i];
+			setTimeout(() => {
+				this.intro[key] = true;
+			}, 1000 * (i + 1));
+		}
+	}
+};
 </script>
 
 <style lang="scss" scoped>
 	#texts {
-		@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap");
 		font-family: "Montserrat", sans-serif;
 
 		position: relative;

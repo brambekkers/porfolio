@@ -3,21 +3,34 @@
 		<Background />
 		<Texts />
 		<Person />
-		<Scroll />
-		<Mail />
+		<ScrollIcon />
+		<CloseIcon />
+		<MailIcon />
+		<Contact />
+
 	</div>
 </template>
 
 <script>
-	import Background from "@/components/Background.vue";
-	import Texts from "@/components/Texts.vue";
-	import Person from "@/components/Person.vue";
-	import Scroll from "@/components/Scroll.vue";
-	import Mail from "@/components/Mail.vue";
-	export default {
-		name: "Landing",
-		components: { Background, Texts, Scroll, Person, Mail }
-	};
+import Background from "@/components/Background.vue";
+import Texts from "@/components/Texts.vue";
+import Person from "@/components/Person.vue";
+import ScrollIcon from "@/components/ScrollIcon.vue";
+import MailIcon from "@/components/MailIcon.vue";
+import CloseIcon from "@/components/CloseIcon.vue";
+import Contact from "@/components/Contact.vue";
+export default {
+	name: "Landing",
+	components: {
+		Background,
+		Texts,
+		ScrollIcon,
+		Person,
+		MailIcon,
+		CloseIcon,
+		Contact
+	}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -25,6 +38,7 @@
 		display: flex;
 		width: 100vw;
 		height: 100vh;
+
 		overflow: hidden;
 	}
 

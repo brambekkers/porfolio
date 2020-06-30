@@ -1,13 +1,24 @@
 <template>
+
 	<div id="person">
-		<img src="@/assets/bram.png" />
+		<transition name="lightSpeed">
+			<img
+				src="@/assets/bram.png"
+				v-if="person"
+			/>
+		</transition>
 	</div>
 </template>
 
 <script>
-	export default {
-		name: "Person"
-	};
+export default {
+	name: "Person",
+	computed: {
+		person() {
+			return this.$store.getters.person;
+		}
+	}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
