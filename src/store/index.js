@@ -10,6 +10,7 @@ export default new Vuex.Store({
             intro: true,
             profession: false
         },
+        info: false,
         scroll: false,
         contact: false,
         person: true,
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     getters: {
         text(state) {
             return state.text;
+        },
+        info(state) {
+            return state.info;
         },
         scroll(state) {
             return state.scroll;
@@ -31,13 +35,14 @@ export default new Vuex.Store({
         person(state) {
             return state.person;
         },
-        fieldOpen(state) {
-            return state.contact
-        }
+
     },
     mutations: {
         text(state, { type, bool }) {
             state.text[type] = bool;
+        },
+        info(state, val) {
+            state.info = val;
         },
         person(state, val) {
             state.person = val;
@@ -52,9 +57,11 @@ export default new Vuex.Store({
             state.contact = val;
         },
         close(state) {
-            state.person = true
-            state.contact = false
-            state.text.all = true
+            state.profession = "";
+            state.person = true;
+            state.contact = false;
+            state.text.all = true;
+            state.info = false;
         }
     }
 });

@@ -38,6 +38,7 @@
 						key="teaching"
 						@mouseover="enter('teaching')"
 						@mouseleave="leave()"
+						@click="info('teaching')"
 						v-if="profession.teaching"
 					>Docent</p>
 					<p
@@ -45,6 +46,7 @@
 						key="coding"
 						@mouseover="enter('coding')"
 						@mouseleave="leave()"
+						@click="info('coding')"
 						v-if="profession.coding"
 					>Programmeur</p>
 					<p
@@ -52,6 +54,7 @@
 						key="making"
 						@mouseover="enter('making')"
 						@mouseleave="leave()"
+						@click="info('making')"
 						v-if="profession.making"
 					>Maker</p>
 				</transition-group>
@@ -64,6 +67,7 @@
 export default {
 	data() {
 		return {
+			click: false,
 			timeout: null,
 			intro: {
 				hallo: false,
@@ -102,8 +106,16 @@ export default {
 		},
 		leave() {
 			this.timeout = setTimeout(() => {
-				this.$store.commit("profession", "");
+				if (!this.click) {
+					this.$store.commit("profession", "");
+				}
 			}, 2000);
+		},
+		info(type) {
+			this.click = true;
+			this.$store.commit("info", { type: type, bool: true });
+			this.$store.commit("text", { type: "all", bool: false });
+			this.$store.commit("person", false);
 		}
 	},
 	mounted() {

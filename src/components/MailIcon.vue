@@ -31,6 +31,8 @@ export default {
 		toMail() {
 			this.$store.commit("person", false);
 			this.$store.commit("contact", true);
+			this.$store.commit("info", false);
+			this.$store.commit("profession", "");
 			this.$store.commit("text", { type: "all", bool: false });
 		}
 	},

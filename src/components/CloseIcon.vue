@@ -1,11 +1,11 @@
 <template>
 	<transition
-		enter-active-class="animated bounceInRight"
-		leave-active-class="animated bounceOutRight"
+		enter-active-class="animated bounceInLeft"
+		leave-active-class="animated bounceOutLeft"
 	>
 		<div
 			id="close"
-			v-if="fieldOpen"
+			v-if="contact || info"
 			@click="close()"
 		>
 
@@ -17,8 +17,11 @@
 <script>
 export default {
 	computed: {
-		fieldOpen() {
-			return this.$store.getters.fieldOpen;
+		contact() {
+			return this.$store.getters.contact;
+		},
+		info() {
+			return this.$store.getters.info;
 		}
 	},
 	methods: {
@@ -41,12 +44,12 @@ export default {
 		transition: color font-size 0.2s;
 
 		@media (max-width: 600px) {
-			bottom: 1rem;
+			top: 1rem;
 			left: 1.5rem;
 		}
 		@media (min-width: 600px) {
 			top: 1rem;
-			right: 3.5rem;
+			left: 1.5rem;
 			transform: translateX(50%);
 		}
 

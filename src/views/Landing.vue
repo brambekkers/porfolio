@@ -6,6 +6,7 @@
 		<ScrollIcon />
 		<CloseIcon />
 		<MailIcon />
+		<Info />
 		<Contact />
 
 	</div>
@@ -18,7 +19,9 @@ import Person from "@/components/Person.vue";
 import ScrollIcon from "@/components/ScrollIcon.vue";
 import MailIcon from "@/components/MailIcon.vue";
 import CloseIcon from "@/components/CloseIcon.vue";
+import Info from "@/components/Info.vue";
 import Contact from "@/components/Contact.vue";
+
 export default {
 	name: "Landing",
 	components: {
@@ -28,6 +31,7 @@ export default {
 		Person,
 		MailIcon,
 		CloseIcon,
+		Info,
 		Contact
 	}
 };
