@@ -51,19 +51,13 @@ export default {
 
 		color: rgba($color: white, $alpha: 0.7);
 
-		font-size: 3.5rem;
+		font-size: 2.8rem;
 		transition: font-size 0.2s;
 		transition: color font-size 0.2s;
 
-		@media (max-width: 600px) {
-			bottom: 1rem;
-			left: 1.5rem;
-		}
-		@media (min-width: 600px) {
-			top: 1rem;
-			right: 3.5rem;
-			transform: translateX(50%);
-		}
+		top: 1rem;
+		right: 3.5rem;
+		transform: translateX(50%);
 
 		&:hover {
 			color: rgba($color: white, $alpha: 1);

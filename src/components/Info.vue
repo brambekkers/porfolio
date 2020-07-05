@@ -28,7 +28,7 @@
 						en het implementeren van de kennis in een organisatie.
 					</p>
 
-					<p>
+					<p class="list">
 						<u><b>Specialiteiten</b></u>
 						<ul>
 							<li>Meubelmaken en jachtbouw</li>
@@ -53,7 +53,7 @@
 					</p>
 					<p>Voor mijn werkzaamheden bij het Hout- en meubileringscollege heb ik een aantal applicaties gemaakt. Deze
 						applicaties worden dagelijks in de praktijkgebruikt.</p>
-					<p>
+					<p class="list">
 						<u><b>Specialiteiten</b></u>
 						<ul>
 							<li>Vue</li>
@@ -103,23 +103,34 @@ export default {
 
 		.field {
 			background: rgba($color: white, $alpha: 0.6);
+			height: calc(80vh - 3rem);
+			width: 60vw;
 			padding: 20px 40px;
-			height: 80vh;
-			width: 80vw;
 			border-radius: 5px;
 			max-width: 80vw;
-			min-width: 60vw;
 			overflow: auto;
+			scroll-padding: 50px 0px 0px 50px;
 
 			h1 {
 				font-weight: 200;
+				margin-top: 0.7rem;
 				font-size: 2.5rem;
 				text-align: center;
+
+				text-shadow: 1px 1px 1px #222;
+				text-decoration: none;
+				text-transform: none;
+				letter-spacing: 0.1em;
+				word-spacing: 0.012em;
 			}
 
 			p {
 				font-size: 1.3rem;
 				font-weight: 400;
+			}
+
+			.list {
+				margin-top: 2rem;
 			}
 		}
 	}

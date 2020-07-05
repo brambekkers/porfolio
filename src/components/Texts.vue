@@ -134,7 +134,7 @@ export default {
 		font-family: "Montserrat", sans-serif;
 
 		position: relative;
-		padding-top: 5%;
+		padding-top: 3rem;
 		padding-left: 10%;
 		width: 50%;
 
@@ -145,6 +145,11 @@ export default {
 		.text {
 			position: absolute;
 			z-index: 15;
+			text-shadow: 4px 4px 4px #555;
+			text-decoration: none;
+			text-transform: none;
+			letter-spacing: 0.1em;
+			word-spacing: 0.012em;
 
 			p {
 				margin: 0;
@@ -187,6 +192,7 @@ export default {
 
 				&:hover {
 					color: white;
+					text-shadow: 2px 2px 2px #222;
 				}
 			}
 
@@ -207,10 +213,10 @@ export default {
 			}
 
 			@media (min-width: 1200px) {
-				font-size: 10rem;
+				font-size: 8rem;
 
 				.coding {
-					font-size: 8rem;
+					font-size: 6rem;
 				}
 			}
 		}
